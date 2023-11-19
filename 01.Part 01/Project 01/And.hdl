@@ -6,10 +6,11 @@
  * And gate:
  * out = (((a == 1) && (b == 1))), 1, 0) 
  */
-CHIP And {
+ CHIP And {
     IN a, b;
     OUT out;
     
     PARTS:
-    //// Replace this comment with your code.
+    Nand(a=a, b=b, out=nandOutput);
+    Not(in=nandOutput, out=out); // And gate using NAND and NOT gates
 }
